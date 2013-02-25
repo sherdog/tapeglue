@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  task_file_name: MyString
+  task_file_content_type: MyString
+  task_file_size: 1
+  task_file_updated_at: 2013-02-06 10:34:01
+  task_id: MyString
+  integer: MyString
+
+two:
+  task_file_name: MyString
+  task_file_content_type: MyString
+  task_file_size: 1
+  task_file_updated_at: 2013-02-06 10:34:01
+  task_id: MyString
+  integer: MyString

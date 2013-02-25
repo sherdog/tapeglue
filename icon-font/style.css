@@ -1,0 +1,392 @@
+@font-face {
+	font-family: 'app';
+	src:url('fonts/app.eot');
+	src:url('fonts/app.eot?#iefix') format('embedded-opentype'),
+		url('fonts/app.woff') format('woff'),
+		url('fonts/app.ttf') format('truetype'),
+		url('fonts/app.svg#app') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'app';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="tg-"]:before {
+*/
+.tg-user:before, .tg-users:before, .tg-bubble:before, .tg-bubble-2:before, .tg-bubbles:before, .tg-bubbles-2:before, .tg-lock:before, .tg-lock-2:before, .tg-unlocked:before, .tg-key:before, .tg-fire:before, .tg-dashboard:before, .tg-meter:before, .tg-pie:before, .tg-cog:before, .tg-cog-2:before, .tg-clock:before, .tg-home:before, .tg-office:before, .tg-pencil:before, .tg-image:before, .tg-image-2:before, .tg-camera:before, .tg-folder:before, .tg-folder-open:before, .tg-switch:before, .tg-list:before, .tg-menu:before, .tg-menu-2:before, .tg-cloud:before, .tg-cloud-upload:before, .tg-remove:before, .tg-remove-2:before, .tg-briefcase:before, .tg-hammer:before, .tg-upload:before, .tg-link:before, .tg-attachment:before, .tg-eye-blocked:before, .tg-bookmark:before, .tg-bookmarks:before, .tg-heart:before, .tg-heart-broken:before, .tg-thumbs-up:before, .tg-thumbs-up-2:before, .tg-star:before, .tg-star-2:before, .tg-star-3:before, .tg-close:before, .tg-checkmark:before, .tg-checkmark-2:before, .tg-cancel-circle:before, .tg-checkmark-circle:before, .tg-spam:before, .tg-info:before, .tg-info-2:before, .tg-question:before, .tg-blocked:before, .tg-warning:before, .tg-notification:before, .tg-play:before, .tg-pause:before, .tg-backward:before, .tg-stop:before, .tg-volume-medium:before, .tg-checkbox-checked:before, .tg-checkbox-unchecked:before, .tg-checkbox-partial:before, .tg-radio-checked:before, .tg-radio-unchecked:before, .tg-share:before, .tg-youtube:before, .tg-facebook:before, .tg-facebook-2:before, .tg-facebook-3:before, .tg-twitter:before, .tg-twitter-2:before, .tg-twitter-3:before, .tg-pinterest:before, .tg-pinterest-2:before, .tg-tumblr:before, .tg-tumblr-2:before, .tg-android:before, .tg-soundcloud:before, .tg-apple:before, .tg-wrench:before, .tg-phone-hang-up:before, .tg-phone:before, .tg-cart:before, .tg-cart-2:before, .tg-cart-3:before, .tg-calendar:before, .tg-calendar-2:before, .tg-print:before, .tg-clock-2:before, .tg-alarm:before, .tg-tag:before, .tg-home-2:before, .tg-expand:before, .tg-cloud-download:before, .tg-play-2:before, .tg-camera-2:before, .tg-film:before, .tg-music:before, .tg-headphones:before, .tg-images:before, .tg-location:before, .tg-envelop:before, .tg-location-2:before, .tg-pushpin:before, .tg-upload-2:before, .tg-box-remove:before, .tg-box-add:before, .tg-download:before, .tg-drawer:before, .tg-drawer-2:before, .tg-drawer-3:before, .tg-bullhorn:before, .tg-connection:before {
+	font-family: 'app';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.tg-user:before {
+	content: "\31";
+}
+.tg-users:before {
+	content: "\32";
+}
+.tg-bubble:before {
+	content: "\33";
+}
+.tg-bubble-2:before {
+	content: "\34";
+}
+.tg-bubbles:before {
+	content: "\35";
+}
+.tg-bubbles-2:before {
+	content: "\36";
+}
+.tg-lock:before {
+	content: "\37";
+}
+.tg-lock-2:before {
+	content: "\38";
+}
+.tg-unlocked:before {
+	content: "\39";
+}
+.tg-key:before {
+	content: "\30";
+}
+.tg-fire:before {
+	content: "\71";
+}
+.tg-dashboard:before {
+	content: "\61";
+}
+.tg-meter:before {
+	content: "\62";
+}
+.tg-pie:before {
+	content: "\e00d";
+}
+.tg-cog:before {
+	content: "\77";
+}
+.tg-cog-2:before {
+	content: "\65";
+}
+.tg-clock:before {
+	content: "\72";
+}
+.tg-home:before {
+	content: "\74";
+}
+.tg-office:before {
+	content: "\79";
+}
+.tg-pencil:before {
+	content: "\75";
+}
+.tg-image:before {
+	content: "\69";
+}
+.tg-image-2:before {
+	content: "\6f";
+}
+.tg-camera:before {
+	content: "\70";
+}
+.tg-folder:before {
+	content: "\5b";
+}
+.tg-folder-open:before {
+	content: "\73";
+}
+.tg-switch:before {
+	content: "\64";
+}
+.tg-list:before {
+	content: "\66";
+}
+.tg-menu:before {
+	content: "\67";
+}
+.tg-menu-2:before {
+	content: "\68";
+}
+.tg-cloud:before {
+	content: "\6a";
+}
+.tg-cloud-upload:before {
+	content: "\6b";
+}
+.tg-remove:before {
+	content: "\e01f";
+}
+.tg-remove-2:before {
+	content: "\e020";
+}
+.tg-briefcase:before {
+	content: "\e021";
+}
+.tg-hammer:before {
+	content: "\e022";
+}
+.tg-upload:before {
+	content: "\e023";
+}
+.tg-link:before {
+	content: "\e024";
+}
+.tg-attachment:before {
+	content: "\e025";
+}
+.tg-eye-blocked:before {
+	content: "\e027";
+}
+.tg-bookmark:before {
+	content: "\e026";
+}
+.tg-bookmarks:before {
+	content: "\e028";
+}
+.tg-heart:before {
+	content: "\e029";
+}
+.tg-heart-broken:before {
+	content: "\e02a";
+}
+.tg-thumbs-up:before {
+	content: "\e02b";
+}
+.tg-thumbs-up-2:before {
+	content: "\e02c";
+}
+.tg-star:before {
+	content: "\e02d";
+}
+.tg-star-2:before {
+	content: "\e02e";
+}
+.tg-star-3:before {
+	content: "\e02f";
+}
+.tg-close:before {
+	content: "\e030";
+}
+.tg-checkmark:before {
+	content: "\e031";
+}
+.tg-checkmark-2:before {
+	content: "\e032";
+}
+.tg-cancel-circle:before {
+	content: "\e033";
+}
+.tg-checkmark-circle:before {
+	content: "\e034";
+}
+.tg-spam:before {
+	content: "\e035";
+}
+.tg-info:before {
+	content: "\e036";
+}
+.tg-info-2:before {
+	content: "\e037";
+}
+.tg-question:before {
+	content: "\e038";
+}
+.tg-blocked:before {
+	content: "\e039";
+}
+.tg-warning:before {
+	content: "\e03a";
+}
+.tg-notification:before {
+	content: "\e03b";
+}
+.tg-play:before {
+	content: "\e03c";
+}
+.tg-pause:before {
+	content: "\e03d";
+}
+.tg-backward:before {
+	content: "\e03e";
+}
+.tg-stop:before {
+	content: "\e03f";
+}
+.tg-volume-medium:before {
+	content: "\e040";
+}
+.tg-checkbox-checked:before {
+	content: "\e041";
+}
+.tg-checkbox-unchecked:before {
+	content: "\e042";
+}
+.tg-checkbox-partial:before {
+	content: "\e043";
+}
+.tg-radio-checked:before {
+	content: "\e044";
+}
+.tg-radio-unchecked:before {
+	content: "\e045";
+}
+.tg-share:before {
+	content: "\e046";
+}
+.tg-youtube:before {
+	content: "\e047";
+}
+.tg-facebook:before {
+	content: "\e048";
+}
+.tg-facebook-2:before {
+	content: "\e049";
+}
+.tg-facebook-3:before {
+	content: "\e04a";
+}
+.tg-twitter:before {
+	content: "\e04b";
+}
+.tg-twitter-2:before {
+	content: "\e04c";
+}
+.tg-twitter-3:before {
+	content: "\e04d";
+}
+.tg-pinterest:before {
+	content: "\e04e";
+}
+.tg-pinterest-2:before {
+	content: "\e04f";
+}
+.tg-tumblr:before {
+	content: "\e050";
+}
+.tg-tumblr-2:before {
+	content: "\e051";
+}
+.tg-android:before {
+	content: "\e052";
+}
+.tg-soundcloud:before {
+	content: "\e053";
+}
+.tg-apple:before {
+	content: "\e054";
+}
+.tg-wrench:before {
+	content: "\e055";
+}
+.tg-phone-hang-up:before {
+	content: "\e056";
+}
+.tg-phone:before {
+	content: "\e057";
+}
+.tg-cart:before {
+	content: "\e058";
+}
+.tg-cart-2:before {
+	content: "\e059";
+}
+.tg-cart-3:before {
+	content: "\e05a";
+}
+.tg-calendar:before {
+	content: "\e05b";
+}
+.tg-calendar-2:before {
+	content: "\e05c";
+}
+.tg-print:before {
+	content: "\e05d";
+}
+.tg-clock-2:before {
+	content: "\e05e";
+}
+.tg-alarm:before {
+	content: "\e05f";
+}
+.tg-tag:before {
+	content: "\e060";
+}
+.tg-home-2:before {
+	content: "\e061";
+}
+.tg-expand:before {
+	content: "\e062";
+}
+.tg-cloud-download:before {
+	content: "\e063";
+}
+.tg-play-2:before {
+	content: "\e064";
+}
+.tg-camera-2:before {
+	content: "\e065";
+}
+.tg-film:before {
+	content: "\e066";
+}
+.tg-music:before {
+	content: "\e067";
+}
+.tg-headphones:before {
+	content: "\e068";
+}
+.tg-images:before {
+	content: "\e069";
+}
+.tg-location:before {
+	content: "\e06a";
+}
+.tg-envelop:before {
+	content: "\e06b";
+}
+.tg-location-2:before {
+	content: "\e06c";
+}
+.tg-pushpin:before {
+	content: "\e06d";
+}
+.tg-upload-2:before {
+	content: "\e06e";
+}
+.tg-box-remove:before {
+	content: "\e06f";
+}
+.tg-box-add:before {
+	content: "\e070";
+}
+.tg-download:before {
+	content: "\e071";
+}
+.tg-drawer:before {
+	content: "\e072";
+}
+.tg-drawer-2:before {
+	content: "\e073";
+}
+.tg-drawer-3:before {
+	content: "\e074";
+}
+.tg-bullhorn:before {
+	content: "\e075";
+}
+.tg-connection:before {
+	content: "\e076";
+}

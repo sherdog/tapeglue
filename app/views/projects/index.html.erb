@@ -1,0 +1,47 @@
+<div class="container subpage_dark">
+  <div class="row page-heading">
+    <div class="span6">
+      <h2>Projects</h2>
+    </div> 
+    <div class="span6">
+        <%= link_to 'Create a New Project', new_project_path, :class => 'btn btn-primary pull-right' %>
+    </div>
+  </div>
+</div>
+
+
+<div class="dark_form dark">
+  <div class="container">
+
+      <table class="table tiles projects">
+        <thead>
+          <div class="table-cap">
+            <tr>
+              <th width="30"><a class="table-corner-link btn green-color-bg" href="#"><span class="icons icons-white icon-cog2"></span></a></th>
+              <th>Current Projects</th>
+              <th></th>
+            </tr>
+          </div>
+        </thead>
+
+      <tbody>
+         <% @projects.each do |project| %>
+          <tr>
+            <td><input type="checkbox" class="checkboxes" value="0" /></td>
+            <td><%= link_to project.name, edit_project_path(project) %></td>
+            <td><a href="#" class="btn darkgrey-color-bg"><span class="icons-white icon-list"></span> 7 Tasks</a>
+           </td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+  </div>
+</div>
+<!--
+<span class="icons-dark icon-checkbox-unchecked"></span>
+-->
+<script type="text/javascript">
+$(function(){
+$('.checkboxes').toggleCheck();
+});
+</script>

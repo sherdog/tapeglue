@@ -1,0 +1,48 @@
+<div class="container subpage_dark">
+	<h2>Sign into your TapeGlue account</h2>
+</div>
+<div class="dark_form">
+	<div class="container">
+		<div class="row-fluid">
+			<div class="span8 alpha">
+				  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal"} ) do |f| %>
+				  <%= f.input :email, placeholder: 'user@example.com' %>
+				  <%= f.input :password, placeholder: 'password' %>
+				  <% if devise_mapping.rememberable? -%>
+					<%= f.input :remember_me, :as => :boolean, label: '<span id="boolean_field" class="icons-dark icon-checkbox-unchecked"></span>',  inline_label: 'Yes, remember me' %>
+				  <% end -%>
+				  <div style="padding-left: 180px;">
+				  		<%= f.button :submit, "Sign in", :class => "btn btn-primary btn-wide"  %>
+				  </div>
+				  
+				<% end %>
+				
+			</div>
+			<div class="span4 omega">
+				<h2 style="text-align:center;">Not Registered?</h2>
+				<p style="text-align:center; margin-top:20px;">Sign up, it's free and only takes a second.</p>
+				<p style="text-align:center; margin-top:20px;"><%= link_to "Register", new_user_registration_path, :class => "btn btn-secondary btn-wide", :style => "margin:0px auto" %></p>
+			</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+$(function(){
+	var checkbox = $('input[name="user[remember_me]"]');
+	$('#user_remember_me').click(function(e){
+		e.preventDefault();
+		var targetElement = $('#boolean_field');
+		if(	targetElement.hasClass('icon-checkbox-unchecked')) {
+			targetElement.removeClass('icon-checkbox-unchecked');
+			targetElement.addClass('icon-checkbox-checked');
+			checkbox.val(1);
+		} else {
+			targetElement.removeClass('icon-checkbox-checked');
+			targetElement.addClass('icon-checkbox-unchecked');
+			checkbox.val(0);
+		}
+	});
+	$('input.boolean').hide();
+});
+</script>

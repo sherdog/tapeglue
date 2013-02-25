@@ -1,0 +1,3 @@
+# Logfile created on Mon Nov 26 16:23:56 -0600 2012 by logger.rb/1.2.6
+I, [2012-11-26T16:35:20.476464 #5776]  INFO -- BankAccount (Mike Sheridan): Depositing 100
+I, [2012-11-26T16:35:20.477714 #5776]  INFO -- BankAccount (Mike Sheridan): Withdrawing 50

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+</head>
+<body class="<%= params[:controller] %>_page">
+	<div class="header_container">
+	<div class="container">
+		<div class="row">
+			<div class="masthead">
+				<a class="brand" href="#">TapeGlue</a>
+				<% if user_signed_in? %>
+				<ul class="pull-right mnav dark" id="">
+					<li><a href="./">Home</a></li>
+					<li><%= link_to "Tasks", tasks_path %></li>
+					<li><%= link_to "Projects", projects_path %></li>
+					<li><a href="#">Team</a></li>
+					<li><a class="mass_nav" href="#"><span class="icon-menu2"> </span> </a>
+						<ul>
+							<li>
+								<div class="ext-li">
+									<span aria-hidden="true" class=" icons-white icon-user"></span>
+								</div>
+								<div class="extr-li">
+									<%= link_to "Your Profile", edit_user_registration_path %>
+								</div>
+							</li>
+							<li>
+								<div class="ext-li">
+									<span aria-hidden="true" class=" icons-white icon-cog"></span>
+								</div>
+								<div class="extr-li">
+									<a href="#">Settings</a>	
+								</div>
+							</li>
+							<li>
+								<div class="ext-li">
+									<span aria-hidden="true" class="icons-white icon-bubble"></span>
+								</div>
+								<div class="extr-li">
+									<a href="#">Notifications</a>	
+								</div>
+							</li>
+							<li>
+								<div class="ext-li">
+									<span class="icons-white icon-box-remove" aria-hidden="true"></span>
+								</div>
+								<div class="extr-li">
+									<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<% else %>
+				<ul class="pull-right mnav">
+					<li><%= link_to "Sign In", user_session_path %></li>
+					<li><%= link_to "Register", new_user_registration_path %></li>
+				</ul>
+
+				<% end %>
+				
+		</div> <!-- end masthead -->
+		</div>
+	</div>
+</div>
+
+  <!--
+	<div class="jumbotron">
+        <h1>Super awesome marketing speak!</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <a class="btn btn-large btn-success" href="#">Sign up today</a>
+      </div>
+
+      <hr>
+  -->
+
+<div class="row">
+
+		<%= yield %>
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.mnav li ul').hide().removeClass('fallback');
+	$('.mnav li').hover(
+		function () {
+			$('ul', this).fadeIn('fast');
+			$(this).addClass('hover-state');
+		},
+		function () {
+			$('ul', this).fadeOut('fast');
+			$(this).removeClass('hover-state');
+		}
+	);
+});
+</script>
+
+</div><!-- End container -->
+</body>
+</html>

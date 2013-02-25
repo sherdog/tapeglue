@@ -1,0 +1,118 @@
+<%= simple_form_for @task, :html => { :class => 'form-vertical', :multipart => true } do |f| %>
+ 
+  <% if @task.errors.any? %>
+    <div id="alert alert-error">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a class="purple-color-bg" href="#details" data-toggle="tab">Task Details</a></li>
+      <li><a href="#assets" class="purple-color-bg" data-toggle="tab">Task Files</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="details">
+        <div class="row ">
+          <div class="span8">
+              <%= f.input :title, :label => "Subject", :input_html => { :class => 'span8' } %>
+              <%= f.input :task, :label => "Describe the task", :input_html => { :class => 'span8' } %>
+          </div>
+          <div class="span4 ">
+            <div id="asset_queue"></div>
+            
+               <%= f.input :date_due, :label => "Due BY", :as => :string, :default => "%m/%d/%Y", :input_html => { :class => 'date_picker span4' } %>
+               <%= f.input :assigned_user_id, :label => "Assigned to", :collection =>  User.all, :prompt => "Select one", :label_method  => :full_name, :value_method => :id, :input_html => { :class => 'span4' } %>
+               <%= f.input :project_id, :collection => Project.all, :label_method => :name, :value_method => :id, :input_html => { :class => 'span4' } %>
+               <%= f.input :priority_id, :collection => Priority.all, :label_method => :title, :value_method => :id, :selected => 3, :input_html => { :class => 'span4' } %>
+             
+          </div> <!-- End Span 4 -->
+        </div> <!-- End Row -->
+      </div> <!-- End Tab Pane -->
+    
+      <div class="tab-pane" id="assets">
+            <legend>Task Files</legend>
+              <div class="row">
+                <div class="span8">
+                  <table class="table tiles">
+                    <%= f.simple_fields_for :assets do |asset_fields| %> 
+                         <% unless asset_fields.object.new_record? %>
+
+                           <tr>
+                              <td width="10"><%= asset_fields.check_box :_destroy %></td>
+                              <td>
+                                <% if asset_fields.object.asset.content_type == 'image/jpeg' %>
+                                    <%= link_to image_tag(asset_fields.object.asset.url(:thumb)), asset_fields.object.asset.url(:original) %>
+                                <% else  %>
+                                    <%= image_tag('filetypes/'+filetype_icon(asset_fields.object.asset.content_type)) %>
+                                <% end %>
+                              </td>
+                              <td> <%= asset_fields.object.asset_file_name %></td>
+                              <td> <%= number_to_human_size(asset_fields.object.asset_file_size) %></td>
+                              <td><%= link_to "Download", asset_fields.object.asset.url(:original), :target => "_blank" %></td>
+                            </tr>
+                        <% end %>
+                      <% end %>
+                    </table>
+                </div>
+                <div class="span4">
+                  <div class="well">
+                   
+                    <h4>Upload Files</h4>
+                    <%= f.simple_fields_for :assets do |asset_fields| %>
+                      <% if asset_fields.object.new_record? %>
+                        <%= asset_fields.input :asset, label: "&nbsp;", input_html: { class: 'uploadify_field' }%>
+                    <% end %>
+                  <% end %>
+                  <div id="asset_queue"></div>
+                </div>
+              </div>
+      </div>
+    </div><!-- End Tab Content -->
+
+    <div class="form-actions">
+      <%= f.submit "Save Changes", :class => 'btn btn-primary' %>
+    </div>
+
+    </div>
+</div>
+
+<% session_key_name = Rails.application.config.session_options[:key] %>
+<script type="text/javascript">
+$(function(){
+
+    $('.uploadify_field').uploadify({
+          uploader        : '/uploadify/uploadify.swf',
+          script          : '<%= url_for @task %>',
+          fileDataName    : 'task[asset_attributes][data]',
+          cancelImg       : '/uploadify/cancel.png" %>',
+          fileDesc        : 'Photo or Video',
+          fileExt         : '*.*',
+          auto            : true,
+          sizeLimit       : <%= 100.megabytes %>,
+          width           : 150,
+          height          : 25,
+          hideButton      : true,
+          scriptAccess    : 'always',
+          wmode           : 'transparent',
+          buttonText      : 'Click to upload files',
+          onComplete      : function(a, b, c, response){ eval(response); $('#asset_queue').html(''); },
+          queueID         : 'noQueueForMePlease',
+          onProgress      : function(event, queueID, fileObj, data){ $('#asset_queue').html(data.percentage + '%') },
+          scriptData      : {
+            '_http_accept': 'application/javascript',
+            '_method': 'put',
+            '<%= session_key_name %>' : encodeURIComponent('<%= u cookies[session_key_name] %>'),
+            'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>')
+          }
+      });
+      $('.date_picker').glDatePicker();
+  });
+  </script>
+  
+<% end %>

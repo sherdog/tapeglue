@@ -1,0 +1,34 @@
+<div class="container subpage_dark">
+  <h2>Your Account </h2>
+</div>
+
+<div class="dark_form">
+  <div class="container">
+    <div class="row-fluid">
+
+
+      <div class="span8">
+        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.input :first_name, :input_html => { :class => "input-xlarge" } %>
+        <%= f.input :last_name, :input_html => { :class => "input-xlarge" } %>
+        <%= f.input :email, :input_html => { :class => "input-xlarge" } %>
+        <div class="form-fields-seperator"><h3>To update your password</h3><p>Enter it below, otherwise leave them blank.</p></div>
+        <%= f.input :password, :input_html => { :class => "input-xlarge" } %>
+        <%= f.input :password_confirmation, :input_html => { :class => "input-xlarge" } %>
+        <div class="form-fields-seperator"><h3>Confirm Your Changes</h3><p>Enter in your current password to make these changes.</p></div>
+        <%= f.input :current_password, :input_html => { :class => "input-xlarge" } %>
+
+        <div class="form-actions"><%= f.submit "Save Changes", :class => 'btn btn-primary' %></div>
+        <% end %>
+      </div>
+      <div class="span4">
+          <h3>Cancel my account</h3>
+          <p stye="text-align:center;"><strong>Unhappy? </strong> Don't worry you can cancel your account.(</p><br />
+          <p ><%= link_to "Cancel my account", registration_path(resource_name), :class => 'btn btn-secondary', :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+
+          
+      </div>
+    </div>
+  </div>
+</div>

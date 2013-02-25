@@ -1,0 +1,328 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ .header_container { 
+ 	background-color:#1F7E5C;
+ }
+
+ .masthead h3 { color:#FFFFFF; }
+
+ .mnav { list-style: none; margin:0; padding: 0; }
+ .mnav > li:first-child { 
+ 	border-left:1px solid #2D966F; 
+ }
+  .mnav > li {
+  				list-style: none; 
+ 				margin:0px; 
+ 				padding: 0px; 
+ 				display: inline-block;
+ 				float:left;
+ 				position: relative; 
+ 				border-right:1px solid #2D966F;
+ 			}
+
+ .mnav li a, .mnav a:link, .mnav a:active, .mnav a:visited { 
+ 	color:#EEEEEE; 
+ 	line-height: 60px; 
+ 	font-weight: 700; 
+ 	text-transform:uppercase; 
+ 	font-size:16px;
+ 	font-family: 'Montserrat', sans-serif; 
+ 	padding:19px 20px;
+ }
+.mnav li li { display: block; background-color: #232323; clear: left; }
+.mnav ul  { list-style: none; padding: 0; margin: 0; position: absolute; top:0px; right:0px; margin-top:60px;   width:251px;  }
+.mnav li li { list-style: none; padding: 0; margin:0;  display: block;  background-color: #1CA070; display: block; clear: both; border-right:0px solid #1CA070; }
+
+
+.ext-li { float: left; width: 55px; height: 56px; background-color:#1CA070; vertical-align: middle; border-right:1px solid #1F7E5C; border-bottom:1px solid #1F7E5C;  }
+.extr-li { float: left; width: 195px; height: 56px; background-color:#1CA070; border-bottom:1px solid #1F7E5C;  }
+.ext-li span { margin-top:15px; margin-left:17px; color:#666666; font-size: 1.3em; line-height: 20px}
+.mnav li li.hover-state .ext-li { background-color: #1F7E5C; }
+
+
+a.brand { font-family: 'Kaushan Script', cursive; }
+.mnav a:hover, .mnav li.active a{ text-decoration: none; color:#FFFFFF; background-color:#1CA070;  }
+li.hover-state a.mass_nav{ text-decoration: none; color:#FFFFFF; background-color:#1CA070;  }
+a.brand:link, a.brand:active, a.brand:visited, a.brand { line-height: 60px; font-size:24px;  font-weight: 400; text-decoration: none; color:#FFFFFF; background-color:#232323; padding:14px 30px; font-family: 'Kaushan Script', cursive; }
+a.brand:hover { text-decoration: none; color:#1CA070; font-family: 'Kaushan Script', cursive; font-weight: 400; }
+a.mass_nav:link,a.mass_nav:active,a.mass_nav:visited { padding-left:30px; padding-right:30px; }
+.icon-menu2 { margin-bottom: -3px;}
+a.mass_nav:hover {  background-color:#1CA070; }
+
+.mnav li li a, .mnav li li a:link, .mnav li li a:active, .mnav li li a:visited {
+  	display:block;
+  	padding:20px 10px 21px 10px;
+  	background-color:#1CA070;
+  	line-height: 15px;
+  	font-size:14px;
+    	color: #FFFFFF;
+}
+span.icn-profile {
+	display: block;
+	float: left;
+}
+.mnav a { 	color: #555555; }
+.mnav li li a:hover {
+	background-color:#1F7E5C;
+	color: #EEEEEE;
+}
+
+.mnav ul li a span.icn-nav, .mnav a span.icn-profile {
+	border-right:1px solid #1F7E5C;
+}
+
+
+
+
+.dark_form { background-color: #F5F5F5; padding: 30px 15px; margin: 30px 0px 0px 0px; }
+
+
+.dark_form .form-actions {
+    background-color: #E3E3E3;
+    border-top: 0px solid #333333;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 19px 20px 20px;
+}
+
+
+
+.pull-right { float:right; }
+.pull-left { float: left; }
+
+.page-heading a.btn  { margin:10px 0px; }
+
+
+.form-fields-seperator { margin: 20px 0px; border-top:1px solid #DDDDDD; border-bottom:1px solid #DDDDDD; }
+.form-fields-seperator h3 { font-size:18px; font-weight: 700; margin: 0px; padding:0px; }
+.form-fields-seperator p { font-size:13px; font-weight: 400; color:#999999;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menu-icon { font-size:18px; color:#666666; }
+
+.icn-nav, .icn-arrow-down, .icn-arrow-left, .icn-arrow-right, .icn-arrow-up, .icn-back, 
+.icn-check, .icn-clock, .icn-date, .icn-dislike, .icn-down, .icn-expand, 
+.icn-heart, .icn-heart-outline, .icn-heart-outline, .icn-lab, .icn-like, 
+.icn-location, .icn-location, .icn-magnify, .icn-pause, .icn-plus, .icn-profile, 
+.icn-refresh, .icn-speaker, .icn-speech, .icn-star, .icn-star-outline, .icn-sun, .icn-write, .icn-x{
+	background-image: url(sprites.png);
+	background-repeat:no-repeat;
+	display: inline-block;
+}
+
+.icn-nav{
+	background-position: -5px -17px ;
+	width: 22px;
+	height: 15px;
+}
+
+.icn-arrow-down{
+	background-position: -53px -20px ;
+	width: 18px;
+	height: 11px;
+}
+
+.icn-arrow-left{
+	background-position: -108px -16px ;
+	width: 11px;
+	height: 18px;
+}
+
+.icn-arrow-right{
+	background-position: -160px -19px ;
+	width: 11px;
+	height: 18px;
+}
+
+.icn-arrow-up{
+	background-position: -206px -21px ;
+	width: 18px;
+	height: 11px;
+}
+
+.icn-back{
+	background-position: -255px -19px ;
+	width: 20px;
+	height: 16px;
+}
+
+.icn-check{
+	background-position: -306px -22px ;
+	width: 16px;
+	height: 12px;
+}
+
+.icn-clock{
+	background-position: -354px -18px ;
+	width: 19px;
+	height: 19px;
+}
+
+.icn-date{
+	background-position: -402px -15px ;
+	width: 22px;
+	height: 22px;
+}
+
+.icn-dislike{
+	background-position: -502px -16px ;
+	width: 24px;
+	height: 24px;
+}
+
+.icn-down{
+	background-position: -604px 0;
+	width: 7px;
+	height: 4px;
+}
+
+.icn-expand{
+	background-position: -5px -68px ;
+	width: 16px;
+	height: 16px;
+}
+
+.icn-heart{
+	background-position: -52px -69px ;
+	width: 22px;
+	height: 18px;
+}
+
+.icn-heart-outline{
+	background-position: -104px -68px ;
+	width: 22px;
+	height: 20px;
+}
+
+.icn-heart-outline{
+	background-position: -305px -54px ;
+	width: 22px;
+	height: 20px;
+}
+
+.icn-lab{
+	background-position: -152px -66px ;
+	width: 26px;
+	height: 26px;
+}
+
+.icn-like{
+	background-position: -197px -64px ;
+	width: 30px;
+	height: 30px;
+}
+
+.icn-location{
+	background-position: -310px -68px ;
+	width: 12px;
+	height: 16px;
+}
+
+.icn-location{
+	background-position: 0 -6px ;
+	width: 12px;
+	height: 16px;
+}
+
+.icn-magnify{
+	background-position: -398px -64px ;
+	width: 30px;
+	height: 30px;
+}
+
+.icn-pause{
+	background-position: -461px -73px ;
+	width: 10px;
+	height: 11px;
+}
+
+.icn-plus{
+	background-position: -509px -70px ;
+	width: 15px;
+	height: 15px;
+}
+
+.icn-profile{
+	background-position: -566px -80px ;
+	width: 24px;
+	height: 24px;
+}
+
+.icn-refresh{
+	background-position: -64px -132px ;
+	width: 18px;
+	height: 20px;
+}
+
+.icn-speaker{
+	background-position: -8px -128px ;
+	width: 16px;
+	height: 16px;
+}
+
+.icn-speech{
+	background-position: -115px -137px ;
+	width: 24px;
+	height: 20px;
+}
+
+.icn-star{
+	background-position: -163px -131px ;
+	width: 22px;
+	height: 22px;
+}
+
+.icn-star-outline{
+	background-position: -266px -130px ;
+	width: 24px;
+	height: 22px;
+}
+
+.icn-sun{
+	background-position: -414px -132px ;
+	width: 26px;
+	height: 26px;
+}
+
+.icn-write{
+	background-position: -466px -128px ;
+	width: 20px;
+	height: 20px;
+}
+
+.icn-x{
+	background-position: -559px -135px ;
+	width: 13px;
+	height: 13px;
+}
+

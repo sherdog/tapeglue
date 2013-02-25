@@ -1,0 +1,67 @@
+<div class="container subpage_dark tabpage">
+  <div class="row page-heading">
+    <div class="span6">
+      <h2>Your Tasks</h2>
+    </div> 
+    <div class="span6">
+       <%= link_to content_tag(:span,"New Task"), new_task_path, :class=>"btn btn-primary pull-right"  %>
+    </div>
+  </div>
+</div>
+
+
+<div class="dark_form">
+  <div class="container">
+    <div class="row">
+      <h3>You have <%= pluralize(@tasks.count, 'task') %> assigned to you</h3>
+        <table width="100%" cellpadding="5" class="table tiles">
+        <tbody>
+        <% @tasks.each do |task| %>
+            <tr>
+            <td class="action_tiles" width="80">
+              <ul>
+                <li><a href="#" class="darkgrey-color-bg tiles-action-toggle"><span class="icons-dark default-icon icon-checkbox-unchecked"></span></a>
+                  <ul class="corner-action-tiles" style="display:none;">
+                    <li><a href="#" class="green-color-bg task-status"><span class="icons-white icon-checkmark"></span></a></li>
+                    <li><a href="#" class="orange-color-bg task-status"><span class="icons-white icon-star3"></span></a></li>
+                    <li><a href="#" class="darkgrey-color-bg task-status"><span class="icons-white icon-checkbox-unchecked"></span></a></li>
+                    <li><a href="#" class="blue-color-bg task-status"><span class="icons-white icon-pencil"></span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+            <td><h3><%= link_to task.title, edit_task_path(task) %></h3></td>
+            <td style="text-align:right;">
+              <div class="date_due_block">
+                <span class="icons-dark icon-clock "></span>Due in <%= distance_of_time_in_words(Time.now, task.date_due) %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+        </table>
+     </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+
+$('.tiles-action-toggle').click(function(e){
+  e.preventDefault();
+  $(this).parent().find('ul').addClass('task-panel-open').show();
+})
+
+$('.task-status').click(function(e){
+  e.preventDefault();
+  var newClass = $(this).html();
+ 
+  $('.task-panel-open').hide().removeClass('task-panel-open');
+  $(this).parent().parent().prev().html(newClass);
+  $(this).parent('ul').html(newClass);
+});
+
+});
+</script>
+

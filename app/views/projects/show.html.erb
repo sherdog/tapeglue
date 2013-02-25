@@ -1,0 +1,62 @@
+<div class="container subpage_dark tabpage">
+	<h2><%= @project.name %></h2>
+</div>
+<div class="dark_form">
+	<div class="container">
+
+			<form>
+				<div class="tabbable">
+				<ul class="nav nav-tabs">
+			      <li class="active"><a class="purple-color-bg" href="#overview" data-toggle="tab">Overview</a></li>
+			      <li><a href="#tasks" class="purple-color-bg" data-toggle="tab">Tasks</a></li>
+			      <li><a href="#files" class="purple-color-bg" data-toggle="tab">Files</a></li>
+			      <li><a href="#team" class="purple-color-bg" data-toggle="tab">Team</a></li>
+			    </ul>
+
+			<p id="notice"><%= notice %></p>
+
+			     <div class="tab-content">
+      				<div class="tab-pane active" id="overview">
+      					<h3>Project Overview</h3>
+      					<p>
+						  <b>Description:</b>
+						  <Br />
+						  <%= @project.description %>
+						</p>
+						<p>
+						  <b>Image:</b>
+						  <%= @project.image %>
+						</p>
+						<p>
+						  <b>Active:</b>
+						  <%= @project.active %>
+						</p>
+      				</div>
+      				<div class="tab-pane" id="tasks">
+      					<h3>Tasks</h3>
+      				</div>
+      				<div class="tab-pane" id="files">
+      					<h3>Files</h3>
+      				</div>
+      				<div class="tab-pane" id="team">
+      					<h3>Team</h3>
+      				</div>
+
+
+      			</div>
+			</div>
+			</form>
+			
+
+			<%= link_to 'Edit', edit_project_path(@project) %> |
+			<%= link_to 'Back', projects_path %>
+	</div>
+</div>
+
+
+
+
+
+
+
+

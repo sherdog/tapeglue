@@ -1,0 +1,36 @@
+<%= simple_form_for @project, input_html: { class: "form-horizontal" } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    
+    </div>
+    <%= f.input :name, input_html: { :class => 'span12', :placeholder => 'Marketing Campaign for Cogswell Cog' } %>
+    <%= f.input :description,  input_html: { :class => 'span12', :style => 'height:200px;' } %>
+    
+
+    <%= f.input :image, :as => :file %>
+    <div class="control-group string optional">
+      <label class="string optional control-label" for="active" >Active Project</label>
+        <div class="controls">
+           <div id="mySwitch" class="switch switch-large" data-on-label="Yes" data-off-label="No" data-on="success" data-off="danger">
+            <input type="checkbox" checked="checked" id="active">
+        </div>
+    </div>
+   
+   
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit,  :class => 'btn btn-primary'  %>
+  </div>
+
+<script type="text/javascript">
+$(function(){
+   $('#mySwitch').on('switch-change', function (e, data) {
+      var $el = $(data.el)
+      , value = data.value;
+      console.log(e, $el, value);
+    });
+  });
+</script>
+<% end %>
