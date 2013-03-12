@@ -3,9 +3,14 @@
 </div>
 <div class="dark_form">
 	<div class="container">
+		<%= content_tag(:div, flash[:error], :id => "flash_error", :class => 'error_explanation') if flash[:error] %>
+			<%= content_tag(:div, flash[:notice], :id => "flash_notice", :class => 'notice_explanation') if flash[:notice] %>
+			<%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => 'alert_explanation') if flash[:alert] %>
 		<div class="row-fluid">
+
 			<div class="span8 alpha">
 				  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal"} ) do |f| %>
+				
 				  <%= f.input :email, placeholder: 'user@example.com' %>
 				  <%= f.input :password, placeholder: 'password' %>
 				  <% if devise_mapping.rememberable? -%>

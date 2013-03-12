@@ -14,7 +14,7 @@ development:
   database: rubytasks
   username: root
   password: michael5
-  host: localhost
+  host: 127.0.0.1
 
 test:
   adapter: mysql2
@@ -23,7 +23,7 @@ test:
   database: rubytasks
   username: root
   password: michael5
-  host: localhost
+  host: 127.0.0.1
 
 
 production:
@@ -33,4 +33,4 @@ production:
   database: rubytasks
   username: root
   password: michael5
-  host: localhost
+  host: 127.0.0.1

@@ -140,8 +140,12 @@ table.tiles td small { font-size:10px; font-weight: 100; font-style: italic; }
 .action_tiles ul li { width:80px; height:80px; display: block; list-style: none; padding:0px; margin: 0px; position: relative;  }
 
 .action_tiles ul li a { width:80px; height:80px; display: block; text-align: center; line-height: 80px; }
-.action_tiles ul ul { position: absolute; top:0px; left:-160px;  width:320px; z-index: 999 }
+.action_tiles ul ul { position: absolute; top:0px; left:-80px;  width:240px; z-index: 999 }
 .action_tiles ul ul li { float:left; }
+
+
+.form_in_place input[type=text] { width:100%;}
+
 
 .tabbable { margin-top:-68px; }
 .table.projects td { font-size:20px; font-weight: 400; }
@@ -312,10 +316,19 @@ select, input[type="file"] {
 }
 #error_explanation { background-color: #e86e66; color:#FFFFFF; padding:15px; margin: 15px 0px; }
 #error_explanation h2 { font-size:16px; font-weight: 400; color: #FFFFFF; margin:0px ;}
-#error_explanation
+
+.alert_explanation, .notice_explanation, #flash_notice{ background-color: #fff7c3; color:#474222; padding:15px; margin: 15px 0px;  }
+
 .btn-wide { padding-left:40px; padding-right:40px; }
 .subpage_dark { margin-top:20px; margin-bottom: 20px; }
 .tabpage.subpage_dark { margin-bottom: 50px; }
+
+.round25 { 
+    border-radius:30px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
 body .dark_form { color:#232323;}
 
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
@@ -353,21 +366,23 @@ body .dark_form { color:#232323;}
     border-bottom: none;
 }
 
-
+.disabled {  
+    opacity: .45;
+    filter: alpha(opacity=45);
+}
+.span1 { position: relative; }
+.relative-me { position: relative; }
 
 .date_due_block { color: #555555; }
 .date_due_block a { color: #555555; }
 
 
+.row-divider { margin:10px 0px; border-bottom:1px solid #CCCCCC; display:block;  }
 
+.profile_container { background-color: #FFFFFF; padding: 0px; }
+.row_spacer { margin:10px 0px; clear: both; }
 
-
-
-
-
-
-
-
+.profile_mini_card { background-color:#FFFFFF; padding:3px;  border:1px solid #CCC;  }
 
 
 .green-color-bg { 

@@ -13,6 +13,10 @@
 <div class="dark_form">
   <div class="container">
     <div class="row">
+      <% flash.each do|name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <div id="flash-message"></div>
       <h3>You have <%= pluralize(@tasks.count, 'task') %> assigned to you</h3>
         <table width="100%" cellpadding="5" class="table tiles">
         <tbody>
@@ -20,17 +24,35 @@
             <tr>
             <td class="action_tiles" width="80">
               <ul>
-                <li><a href="#" class="darkgrey-color-bg tiles-action-toggle"><span class="icons-dark default-icon icon-checkbox-unchecked"></span></a>
+                <li><a href="#" class="darkgrey-color-bg tiles-action-toggle" name="Pending" rel="<%= task.id %>"><span class="icons-dark icon-checkbox-unchecked"></span></a>
                   <ul class="corner-action-tiles" style="display:none;">
-                    <li><a href="#" class="green-color-bg task-status"><span class="icons-white icon-checkmark"></span></a></li>
-                    <li><a href="#" class="orange-color-bg task-status"><span class="icons-white icon-star3"></span></a></li>
-                    <li><a href="#" class="darkgrey-color-bg task-status"><span class="icons-white icon-checkbox-unchecked"></span></a></li>
-                    <li><a href="#" class="blue-color-bg task-status"><span class="icons-white icon-pencil"></span></a></li>
+                   
+                    <li>
+                     <%= 
+                        link_to content_tag(:span, '', :class => "icons-white icon-checkmark"),
+                        { :controller => :tasks, :action => :update, :id => task.id, :status => 'complete' },
+                        { :method=>:put, :remote => true, :class => "green-color-bg task-status"}
+                      %>
+                     </li>
+                    <li>
+                       <%= 
+                        link_to content_tag(:span, '', :class => "icons-dark icon-checkbox-unchecked"),
+                        { :controller => :tasks, :id => task.id },
+                        { :method=>:put, :remote => true, :class => "darkgrey-color-bg task-status"}
+                        %>
+                    </li>
+                    <li>
+                      <%= 
+                        link_to content_tag(:span, '', :class => "icons-white icon-pencil"),
+                        { :action => :edit, :controller => :tasks, :id => task.id },
+                        { :method=>:get, :class => "blue-color-bg task-status"}
+                       %>
+                      </li>
                   </ul>
                 </li>
               </ul>
             </td>
-            <td><h3><%= link_to task.title, edit_task_path(task) %></h3></td>
+            <td><h3><%= link_to task.title, task_path(task) %></h3></td>
             <td style="text-align:right;">
               <div class="date_due_block">
                 <span class="icons-dark icon-clock "></span>Due in <%= distance_of_time_in_words(Time.now, task.date_due) %>
@@ -55,11 +77,21 @@ $('.tiles-action-toggle').click(function(e){
 
 $('.task-status').click(function(e){
   e.preventDefault();
-  var newClass = $(this).html();
+  
  
+  var me = $(this);
+  var target = $(this).prev('.tiles-action-toggle');
+  var newClass = $(this).html();
+  var oldclass = $(this).attr('class');
+  
+
   $('.task-panel-open').hide().removeClass('task-panel-open');
   $(this).parent().parent().prev().html(newClass);
   $(this).parent('ul').html(newClass);
+  target.removeClass('darkgrey-color-bg').removeClass('green-color-bg').removeClass('orange-color-bg').removeClass('blue-color-bg');
+  target.addClass(oldclass);
+
+
 });
 
 });

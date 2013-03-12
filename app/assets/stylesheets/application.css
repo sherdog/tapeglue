@@ -53,9 +53,11 @@
 
 
 a.brand { font-family: 'Kaushan Script', cursive; }
-.mnav a:hover, .mnav li.active a{ text-decoration: none; color:#FFFFFF; background-color:#1CA070;  }
+.mnav a:hover{ text-decoration: none; color:#FFFFFF; background-color:#1CA070;  }
 li.hover-state a.mass_nav{ text-decoration: none; color:#FFFFFF; background-color:#1CA070;  }
-a.brand:link, a.brand:active, a.brand:visited, a.brand { line-height: 60px; font-size:24px;  font-weight: 400; text-decoration: none; color:#FFFFFF; background-color:#232323; padding:14px 30px; font-family: 'Kaushan Script', cursive; }
+a.brand:link, a.brand:visited, a.brand { line-height: 60px; font-size:24px;  font-weight: 400; text-decoration: none; color:#FFFFFF; background-color:#232323; padding:14px 30px; font-family: 'Kaushan Script', cursive; }
+li.active a{ text-decoration: none; color:#FFFFFF; background-color:#232323; !important  }
+
 a.brand:hover { text-decoration: none; color:#1CA070; font-family: 'Kaushan Script', cursive; font-weight: 400; }
 a.mass_nav:link,a.mass_nav:active,a.mass_nav:visited { padding-left:30px; padding-right:30px; }
 .icon-menu2 { margin-bottom: -3px;}
@@ -111,9 +113,11 @@ span.icn-profile {
 
 
 
+.team_member_inner { border:1px solid #CCCCCC; background-color:#FFFFFF; padding:1px; }
 
-
-
+.comment_text { background-color:#232323; color:#FFFFFF; }
+.comment_text_speech_bubble { background-image:url('comment_box_speech_bubble.png'); float:left; margin-left:-23px; margin-top:10px; background-repeat: no-repeat; height: 19px; width: 23px; display: inline-block; }
+.comment_text_inner { padding:8px; }
 
 
 

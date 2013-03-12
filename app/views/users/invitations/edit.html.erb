@@ -1,0 +1,27 @@
+
+<div class="container subpage_dark ">
+	<h2><%= t 'devise.invitations.edit.header' %></h2>
+</div>
+<div class="dark_form">
+	<div class="container">
+	<p>Welcome to TapeGlue, complete the fields below to activate your account</p>
+<%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put, :multipart => true } do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :invitation_token %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :avatar, :ask => :file %>
+  <%= f.submit t("devise.invitations.edit.submit_button"), :class => 'btn btn-primary' %>
+<% end %>
+
+
+	</div>
+</div>
+
+
+
+
+
+

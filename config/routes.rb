@@ -1,19 +1,23 @@
 Tasks::Application.routes.draw do
  
+
   
   resources :projects
 
   resources :categories
   resources :priorities
   resources :tasks
-
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
-  root :to  => "tasks#index"
-
+  resources :teams
+  
+  
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :invitations => 'invitations'}
+  
   devise_scope :user do
-      match '/confirm/:confirmation_token', :to => "devise/confirmations#show", :as => "user_confirm", :only_path => false
+     match '/confirm/:confirmation_token', :to => "devise/confirmations#show", :as => "user_confirm", :only_path => false
+     match '/resend_confirmation', :to => "devise/confirmations#resend", :as => "resend_confirmation"
   end
-
+  
+  root :to  => "tasks#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

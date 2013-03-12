@@ -12,6 +12,8 @@ gem 'simple_form'
 gem 'american_date'
 gem 'nifty-generators'
 gem 'paperclip'
+gem 'best_in_place'
+gem 'devise_invitable', '~> 1.1.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

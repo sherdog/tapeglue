@@ -21,6 +21,7 @@ class TasksController < ApplicationController
     end
   end
 
+
   # GET /tasks/new
   # GET /tasks/new.json
   def new
@@ -47,7 +48,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
-
     @task.user_id = current_user.id
     @task.title = params[:task][:title]
     @task.task = params[:task][:task]
@@ -73,15 +73,34 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-    @task.user_id = current_user
-    @task.date_due = Date.parse(params[:task][:date_due])
+  
+    
+    if request.xhr? 
+      @task.status = params[:status]
+    else
+       @task.user_id = current_user
+       @task.date_due = Date.parse(params[:task][:date_due])
+    end
+   
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { head :no_content }
+        flash[:notice] = "Task updated successfully"
+        if request.xhr? 
+          format.js { }
+        else
+          format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+          format.json { head :no_content }
+        end
+        
       else
-        format.html { render action: "edit" }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        if request.xhr?
+          flash[:error] = @task.errors
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
+
+        
       end
     end
   end
@@ -90,11 +109,14 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
-    @task.destroy
-
+   # @task.destroy
+    flash[:notice] = "The task #{@task.title} was deleted successfully"
     respond_to do |format|
-      format.html { redirect_to tasks_url }
-      format.json { head :no_content }
-    end
+        if request.xhr?
+             format.js
+        else
+             format.html { redirect_to tasks_url }
+        end
+     end  
   end
 end

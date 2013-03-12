@@ -18,6 +18,7 @@
           <div class="table-cap">
             <tr>
               <th width="30"><a class="table-corner-link btn green-color-bg" href="#"><span class="icons icons-white icon-cog2"></span></a></th>
+              <th width="50"></th>
               <th>Current Projects</th>
               <th></th>
             </tr>
@@ -28,8 +29,11 @@
          <% @projects.each do |project| %>
           <tr>
             <td><input type="checkbox" class="checkboxes" value="0" /></td>
+            <td><%= image_tag project.image.url(:thumb) %></td>
             <td><%= link_to project.name, edit_project_path(project) %></td>
-            <td><a href="#" class="btn darkgrey-color-bg"><span class="icons-white icon-list"></span> 7 Tasks</a>
+            <td>
+              <a href="#" class="btn darkgrey-color-bg round25"><span class="icons-white icon-list"></span> 7 Tasks</a>
+              <a href="#" class="btn darkgrey-color-bg round25"><span class="icons-white icon-users"></span>Bravo Team(3)</a>
            </td>
           </tr>
         <% end %>

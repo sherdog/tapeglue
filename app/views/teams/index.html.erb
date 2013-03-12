@@ -1,0 +1,108 @@
+<div class="container subpage_dark">
+  <div class="row page-heading">
+    <div class="span6">
+      <h2>Your Teams</h2>
+    </div> 
+      <div class="span6">
+         <%= link_to content_tag(:span,"New Team"), new_team_path, :class=>"btn btn-primary pull-right"  %>
+      </div>
+  </div>
+</div>
+
+
+<div class="dark_form">
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+          <div class="row">
+<a href="#" data-reveal-id="invitation_modal">Send an Invitation</a>
+          <% if !current_user.invited_by_id %>  
+          <div class="well">
+          <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+            <%= devise_error_messages! %>
+
+            <% resource.class.invite_key_fields.each do |field| -%>
+              <%= f.input field %>
+            <% end -%>
+
+            <%= f.submit t("devise.invitations.new.submit_button") %>
+          <% end %>
+
+
+          </div>
+          <% end %>
+            
+          <h3>You have created <%= pluralize(@teams.count, 'team') %></h3>
+         <table width="100%" cellpadding="5" class="table tiles">
+          <tbody>
+          <% @teams.each do |team| %>
+              <tr>
+              
+              <td><h3><%= link_to team.name, edit_team_path(team) %></h3></td>
+              <td style="text-align:right;">
+                <div class="date_due_block">
+                  <span class="icons-dark icon-users"></span>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+         </table>
+
+
+        </div>  
+      </div>
+      <div class="span4">
+        <div class="row">
+            <h3>Your Connections</h3>
+              <% @team_members.each_with_index do |member, i| %>
+              <% count = i + 1 %>
+                <% if member.invitation_accepted_at.nil? %>
+                  
+                <% else %> 
+                <div class="span4">
+                    <div class="profile_mini_card">
+                        <div class="row">
+                          <div class="span1 "><%= image_tag member.avatar.url(:thumb) %></div>
+                          <div class="span2"><h5><%= member.full_name %></h5></div>
+                      </div>
+                    </div>
+                </div>
+
+                <% end %>
+                
+
+                  <% if count == 2 %>
+                  <% count = 0 %>
+                    <div class="row_spacer row"> </div>
+                  <% end %>
+                  
+                  <% count = count +1 %>
+              <% end %>
+
+        </div>
+
+        
+      </div>
+     </div>
+  </div>
+</div>
+
+
+<div id="invitation_modal" class="reveal-modal">
+     <h3>Send an Invite</h3>
+     <p>Send an invitation, just enter in the email address below.</p>
+     <p>
+        <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :remote=>true, :html => {:method => :post} do |f| %>
+          <%= devise_error_messages! %>
+
+        <% resource.class.invite_key_fields.each do |field| -%>
+          <%= f.input field, :input_html => { :class => "span6" } %>
+        <% end -%>
+
+        <%= f.submit t("devise.invitations.new.submit_button"), :class => "btn btn-primary" %>
+        <% end %>
+     </p>
+     <a class="close-reveal-modal">&#215;</a>
+</div>
+

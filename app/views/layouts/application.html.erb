@@ -17,10 +17,14 @@
 				<a class="brand" href="#">TapeGlue</a>
 				<% if user_signed_in? %>
 				<ul class="pull-right mnav dark" id="">
-					<li><a href="./">Home</a></li>
-					<li><%= link_to "Tasks", tasks_path %></li>
-					<li><%= link_to "Projects", projects_path %></li>
-					<li><a href="#">Team</a></li>
+					<li class="<%= 'active' if params[:controller] == 'controller1' %>"><a href="./">Home</a></li>
+					<li class="<%= 'active' if params[:controller] == 'tasks' %>"><%= link_to "Tasks", tasks_path %></li>
+					<li class="<%= 'active' if params[:controller] == 'projects' %>"><%= link_to "Projects", projects_path %></li>
+					<% if !current_user.invited_by_id %>
+						<li class="<%= 'active' if params[:controller] == 'teams' %>"><%= link_to "Teams", teams_path %></li>
+					<% else %>
+						<li class="<%= 'active' if params[:controller] == 'teams' %>"><%= link_to "Team", teams_path %></li>
+					<% end %>
 					<li><a class="mass_nav" href="#"><span class="icon-menu2"> </span> </a>
 						<ul>
 							<li>

@@ -1,5 +1,5 @@
 <div class="container subpage_dark">
-  <h2>Your Account </h2>
+  <h2>Your Profile</h2>
 </div>
 
 <div class="dark_form">
@@ -10,6 +10,7 @@
       <div class="span8">
         <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
         <%= devise_error_messages! %>
+        <%= f.input :avatar, :as => :file %>
         <%= f.input :first_name, :input_html => { :class => "input-xlarge" } %>
         <%= f.input :last_name, :input_html => { :class => "input-xlarge" } %>
         <%= f.input :email, :input_html => { :class => "input-xlarge" } %>
@@ -23,10 +24,20 @@
         <% end %>
       </div>
       <div class="span4">
-          <h3>Cancel my account</h3>
-          <p stye="text-align:center;"><strong>Unhappy? </strong> Don't worry you can cancel your account.(</p><br />
-          <p ><%= link_to "Cancel my account", registration_path(resource_name), :class => 'btn btn-secondary', :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+        <div class="well" style="text-align:center; background-color:#FFFFFF; border-radius:5px;">
+          <%= image_tag @user.avatar.url(:medium) %>
+          <p>
+            <h5 style="text-align:left; padding-left:20px;"><%= @user.first_name + " " + @user.last_name %></h5>
+            <p style="text-align:left; padding-left:20px;"><%= link_to "Edit Profile", edit_user_registration_path %></p>
+            
+          </p>
+        </div>
+        <p style="text-align:right; padding-left:20px;">
+          <%= link_to "Close Account", registration_path(resource_name), :class => '', :data => { :confirm => "Are you sure you want to close your account? THIS IS UNDOABLE!" }, :method => :delete %>
+        </p>
+        
 
+       
           
       </div>
     </div>

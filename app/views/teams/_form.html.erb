@@ -1,0 +1,29 @@
+<%= simple_form_for @team, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+ 
+  <% if @team.errors.any? %>
+    <div id="alert alert-error">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+        <div class="row ">
+          <div class="span8">
+              <%= f.input :name, :label => "Team Name", :input_html => { :class => 'span8' } %>
+          </div>
+          
+        </div> <!-- End Row -->
+    
+     
+
+    <div class="form-actions">
+      <%= f.submit "Save Changes", :class => 'btn btn-primary' %>
+    </div>
+
+
+<% end %>

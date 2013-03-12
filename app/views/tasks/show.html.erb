@@ -1,29 +1,103 @@
-<p id="notice"><%= notice %></p>
+<div class="container subpage_dark tabpage">
+  <h2>Create a New Task</h2>
+</div>
+<div class="dark_form">
+  <div class="container">
+      
 
-<p>
-  <b>Title:</b>
-  <%= @task.title %>
-</p>
 
-<p>
-  <b>Task:</b>
-  <%= @task.task %>
-</p>
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a class="purple-color-bg" href="#details" data-toggle="tab">Task Details</a></li>
+      <li><a href="#assets" class="purple-color-bg" data-toggle="tab">Task Files</a></li>
+    </ul>
 
-<p>
-  <b>Assigned to:</b>
-  <%= @task.assigned_user.full_name %>
-</p>
+    
+    <div class="tab-content">
+      <div class="tab-pane active" id="details">
+        <div class="row">
+          <div class="span8"></div>
+          <div class="span4"><%= link_to "Edit Task", edit_task_path, :class => "btn btn-secondary" %></div>
+        </div>
+        <div class="row ">
+          <div class="span8">
+            <p id="notice"><%= notice %></p>
+              <p>
+                <b>Task:</b>
+                <%= @task.task %>
+              </p>
 
-<p>
-  <b>Priority:</b>
-  <%= @task.priority.title %>
-</p>
+              <p>
+                <b>Assigned to:</b>
+                <% if @task.assigned_user.nil? %>
+                  Not assigned
+                <% else %>
+                  <%= @task.assigned_user.full_name %>
+                <% end %>
+              </p>
 
-<p>
-  <b>Created by:</b>
-  <%= @task.user.full_name %>
-</p>
+              <p>
+                <b>Priority:</b>
+                <%= @task.priority.title %>
+              </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+              <p>
+                <b>Created by:</b>
+                <% if @task.user.nil? %>
+                  Guest
+                <% else %>
+                   <%= @task.user.full_name %>
+                <% end %>
+
+                 
+              </p>
+              
+            <%= link_to 'Edit', edit_task_path(@task) %> |
+            <%= link_to 'Back', tasks_path %>
+
+          </div> <!-- End Span 8  -->
+          <div class="span4">
+            <h3>Task Chatter</h3>
+            <div id="task_comments">
+
+              <div class="row comment">
+                <div class="span1 comment_pic"><div style="border:1px solid #CCC; background-color:#E3E3E3; margin:2px; width:50px; height:50px;"></div></div>
+                <div class="span3 comment_text">
+                  <span class="comment_text_speech_bubble"></span>
+                  <div class="comment_text_inner">Comment Area will be located here of all that commented.</div>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div> <!-- End Row -->
+      </div> <!-- End Tab Pane -->
+    
+      <div class="tab-pane" id="assets">
+            <legend>Task Files</legend>
+              <div class="row">
+                <div class="span8">
+                 
+                </div>
+                <div class="span4">
+                  <div class="well">
+                   
+                    
+                  <div id="asset_queue"></div>
+                </div>
+              </div>
+      </div>
+    </div><!-- End Tab Content -->
+
+
+    
+  </div>
+</div>
+
+
+
+
+
+
+
